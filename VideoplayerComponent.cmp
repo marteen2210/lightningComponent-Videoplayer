@@ -1,0 +1,32 @@
+<aura:component controller="VideoplayerController">
+    <aura:attribute name="selectedDoc" type="String" access="public"/>
+    <aura:attribute name="doumentList" type="List" access="public"/>
+    <aura:handler name="init" value="{!this}" action="{!c.getDocument}"/>
+    <div class="slds-box">
+        Video Player App
+    </div>
+	<div class="slds-box">
+        <fieldset class="slds-form-element slds-form-element_compound">
+            <div class="slds-form-element__control">
+                <div class="slds-form-element__row">
+                    <div class="slds-size_1-of-3">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <lightning:select aura:id="selectDocId" name="selectDocId" label="Document" required="true" 
+                                                  value="{!v.selectedDoc}">       
+                                    <option value="">Choose Document...</option>
+                                    <aura:iteration items="{!v.doumentList}" var="video_doc">
+                                        <option text="{!video_doc.label}" value="{!video_doc.value}">
+                                        </option>
+                                    </aura:iteration>
+                                </lightning:select>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <c:VideoplayerBox srcvalue="{!v.selectedDoc}"/>
+            </div>
+        </fieldset>
+    </div>
+</aura:component>

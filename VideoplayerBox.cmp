@@ -1,0 +1,23 @@
+<aura:component>
+    <aura:attribute name="srcvalue" type="String"/>
+    <aura:attribute name="src_value" type="String" access="public"/>
+    <div class="slds-form-element__row">
+        <div class="slds-size_1-of-3">
+        	<div class="slds-form-element">
+            	<div class="slds-form-element__control">
+    				<lightning:button class="slds-button slds-button_brand" onclick="{!c.playVideo}" label="Play" />
+    			</div>
+            </div>
+        </div>
+    </div>
+    <div class="slds-form-element__control">
+        <div class="slds-form-element__row">
+            <div class="slds-size_1-of-4">
+                <video controls="controls" width="400" height="200" id="vdo">
+                    <source aura:id="videoid" src="{!v.src_value}" type="video/mp4"/>
+                    {!v.src_value}
+             	</video>
+            </div>
+        </div>
+    </div>
+</aura:component>
